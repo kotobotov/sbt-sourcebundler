@@ -11,8 +11,8 @@ case class Bundler(fileName: String, io: BundlerIo) {
   def bundle(): Unit = {
     println("CREATING SOURCE CODE BUNDLE")
     val outputFileContent = buildOutput
-    val formattedOutputFileContent = org.scalafmt.Scalafmt.format(outputFileContent).get
-    //val formattedOutputFileContent = outputFileContent
+    //val formattedOutputFileContent = org.scalafmt.Scalafmt.format(outputFileContent).get
+    val formattedOutputFileContent = outputFileContent
     io.save(fileName, formattedOutputFileContent)
   }
 
