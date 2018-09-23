@@ -1,4 +1,5 @@
-package ru.kotobotov
+package ru.kotobotov.bundler
+
 import java.io.File
 
 /**

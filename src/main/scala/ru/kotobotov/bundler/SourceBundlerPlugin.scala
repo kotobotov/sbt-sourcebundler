@@ -1,4 +1,4 @@
-package ru.kotobotov
+package ru.kotobotov.bundler
 
 import sbt._
 import sbt.Keys._

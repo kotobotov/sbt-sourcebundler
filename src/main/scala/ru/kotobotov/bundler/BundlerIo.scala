@@ -1,4 +1,5 @@
-package ru.kotobotov
+package ru.kotobotov.bundler
+
 import java.io.{File, PrintWriter}
 import java.nio.file.{Files, FileVisitOption, Paths}
 import java.util.Objects
