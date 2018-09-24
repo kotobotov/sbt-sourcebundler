@@ -3,13 +3,13 @@ package ru.kotobotov.bundler
 import java.io.File
 
 /**
- * Created by Kotobotov.ru on 24.09.2018.
- */
+  * Created by Kotobotov.ru on 24.09.2018.
+  */
 case class Bundler(fileName: String, io: BundlerIo) {
   type PackageContents = Map[String, String]
 
   def bundle(): Unit = {
-    println("CREATING SOURCE CODE BUNDLE")
+    println(s"=== Bundle for $fileName ===")
     val outputFileContent = buildOutput
     //val formattedOutputFileContent = org.scalafmt.Scalafmt.format(outputFileContent).get
     val formattedOutputFileContent = outputFileContent
@@ -80,7 +80,7 @@ case class Bundler(fileName: String, io: BundlerIo) {
     pkgLines match {
       case Nil => add("", result, packagesContents)
       case List(pkgLine) =>
-        val pkgName = if (forceToRoot) "" else pkgLine.drop("package ".size)
+        val pkgName = if (forceToRoot) "" else pkgLine.drop("package ".length)
         add(pkgName, result, packagesContents)
       case _ =>
         throw new Exception(

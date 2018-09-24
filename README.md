@@ -11,19 +11,23 @@ setup
 This is an auto plugin, so you need sbt 0.13.5+. Put this in `project/plugin.sbt`:
 
 ```sbtshell
-addSbtPlugin("ru.kotobotov" % "sbt-sourcebundler" % "0.1.0")
+addSbtPlugin("ru.kotobotov" % "sbt-sourcebundler" % "0.1.1")
 ```
 
 usage
 -----
 
+to write a bundle just use `sbt bundle` in console
+
 sbt-sourcebundler is a triggered plugin that is enabled automatically for all projects.
-in your `build.sbt` file write this:
+
+by default plugin search for all Main.classes and generate bundle for them
+but if you like you can specify your Main.class by  
+writing in your `build.sbt` file this:
 
 ```sbtshell
 bundleMain := "Main.scala"
 ```
 
-change `bundleMain` - if you need different starting point than Main.class (Main.class - default value)
+where `bundleMain` - is pointing to name of your main class.
 
-to write a bundle just use `sbt bundle` in console

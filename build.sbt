@@ -1,4 +1,4 @@
-ThisBuild / version := "0.1.0"
+ThisBuild / version := "0.1.1"
 ThisBuild / organization := "ru.kotobotov"
 ThisBuild / description := "sbt plugin to merge all source code into one bundle file"
 
