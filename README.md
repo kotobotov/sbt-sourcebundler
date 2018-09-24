@@ -17,7 +17,7 @@ addSbtPlugin("ru.kotobotov" % "sbt-sourcebundler" % "0.1.0")
 usage
 -----
 
-sbt-javaversioncheck is a triggered plugin that is enabled automatically for all projects.
+sbt-sourcebundler is a triggered plugin that is enabled automatically for all projects.
 in your `build.sbt` file write this:
 
 ```sbtshell
