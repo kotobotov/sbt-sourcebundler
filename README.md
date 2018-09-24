@@ -21,7 +21,6 @@ sbt-javaversioncheck is a triggered plugin that is enabled automatically for all
 in your `build.sbt` file write this:
 
 ```sbtshell
-enablePlugins(SourceBundlerPlugin)
 bundleMain := "Main.scala"
 ```
 

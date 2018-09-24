@@ -1,17 +1,21 @@
-sbtPlugin := true
-scalaVersion := "2.12.6"
-name := "sbt-sourcebundler"
+ThisBuild / version := "0.1.0"
+ThisBuild / organization := "ru.kotobotov"
+ThisBuild / description := "sbt plugin to merge all source code into one bundle file"
 
-organization := "ru.kotobotov"
+ThisBuild / licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
-version := "0.1-SNAPSHOT"
+lazy val root = (project in file("."))
+  .settings(
+    sbtPlugin := true,
+    name := "sbt-sourcebundler",
+    publishMavenStyle := false,
+    bintrayRepository := "sbt-sourcebundler",
+    bintrayOrganization in bintray := None
+  )
 
-description := "sbt plugin to merge all source code into one bundle file"
-
-licenses := Seq("MIT License" -> url("http://opensource.org/licenses/MIT"))
 
 scalacOptions := Seq("-deprecation", "-unchecked")
-publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
+//publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
 //publishMavenStyle := false
 
 //publishTo := {
