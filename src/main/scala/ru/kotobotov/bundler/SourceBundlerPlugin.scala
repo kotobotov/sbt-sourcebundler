@@ -7,10 +7,10 @@ import sbt.plugins.JvmPlugin
 object SourceBundlerPlugin extends sbt.AutoPlugin {
 
   object autoImport {
-    libraryDependencies += "com.geirsson" %% "scalafmt-core" % "1.3.0"
-    libraryDependencies += "com.geirsson" %% "scalafmt-cli" % "1.3.0"
     lazy val bundleMain =
       settingKey[String]("start class name (Main.class) for your bundle")
+    lazy val bundleTarget =
+      settingKey[String]("target folder for your bundle")
     lazy val bundle = taskKey[String]("pack source code to one file")
   }
 
@@ -20,29 +20,27 @@ object SourceBundlerPlugin extends sbt.AutoPlugin {
   override lazy val projectSettings = bundleSettings
 
   def bundleSettings: Seq[Setting[_]] = Seq(
-    libraryDependencies += "com.geirsson" %% "scalafmt-core" % "1.3.0",
-    libraryDependencies += "com.geirsson" %% "scalafmt-cli" % "1.3.0",
-    bundleMain := "all",
+    bundleMain := "",
+    bundleTarget := "./target",
     bundle := {
-      if (bundleMain.value.isEmpty || bundleMain.value == "all") {
+      if (bundleMain.value.isEmpty) {
         println("bundleMain not specified - try to find all Main.class'es")
         (Compile / discoveredMainClasses).value
-          .foreach(cls => BundlerMain(cls.split("\\.").reverse.head))
-        ""
-      } else BundlerMain(bundleMain.value)
+          .foreach(cls => BundlerMain(cls.split("\\.").reverse.head, bundleTarget.value))
+      } else BundlerMain(bundleMain.value, bundleTarget.value)
+    "Completed"
     }
   )
 }
 
 object BundlerMain {
-  def apply(mainClass: String): String = {
+  def apply(mainClass: String, destination:String): Unit = {
     if (mainClass.isEmpty) {
       println("Input file name must be provided")
       sys.error("Main.class file name error.")
     }
     val mainPrepared =
       if (mainClass.contains(".scala")) mainClass else mainClass + ".scala"
-    Bundler(mainPrepared, StdBundlerIo()).bundle()
-    "return"
+    Bundler(mainPrepared, StdBundlerIo(destination)).bundle()
   }
 }

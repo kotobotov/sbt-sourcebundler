@@ -1,7 +1,6 @@
 package ru.kotobotov.bundler
 
 import java.io.File
-
 /**
   * Created by Kotobotov.ru on 24.09.2018.
   */
@@ -11,7 +10,6 @@ case class Bundler(fileName: String, io: BundlerIo) {
   def bundle(): Unit = {
     println(s"=== Bundle for $fileName ===")
     val outputFileContent = buildOutput
-    //val formattedOutputFileContent = org.scalafmt.Scalafmt.format(outputFileContent).get
     val formattedOutputFileContent = outputFileContent
     io.save(fileName, formattedOutputFileContent)
   }

@@ -19,9 +19,9 @@ trait BundlerIo {
   def filesInFolder(folder: File): List[File]
 }
 
-case class StdBundlerIo(srcFolder: String = "./src/main/scala")
+case class StdBundlerIo(destFolder: String,
+                        srcFolder: String = "./src/main/scala")
     extends BundlerIo {
-
   def readFile(file: File): List[String] = {
     println(s"importing from $file")
     try {
@@ -44,7 +44,6 @@ case class StdBundlerIo(srcFolder: String = "./src/main/scala")
   }
 
   def save(fileName: String, content: String): Unit = {
-    val destFolder: String = "./target"
     val destFile = new File(destFolder, fileName)
     val pw = new PrintWriter(destFile)
     try {
