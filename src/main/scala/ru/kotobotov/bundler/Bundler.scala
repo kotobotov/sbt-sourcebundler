@@ -1,9 +1,6 @@
 package ru.kotobotov.bundler
 
 import java.io.File
-/**
-  * Created by Kotobotov.ru on 24.09.2018.
-  */
 case class Bundler(fileName: String, io: BundlerIo) {
   type PackageContents = Map[String, String]
 
