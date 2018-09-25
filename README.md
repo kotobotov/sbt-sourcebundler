@@ -40,7 +40,7 @@ competition platform
 -----------------
 top competition platform where you can practicing with scala (and use sourcebundler):
 
-- ![codingame](https://static.codingame.com/assets/spritesheets/cg-footer-huge.c6333cce.png)
+- ![#696969](https://static.codingame.com/assets/spritesheets/cg-footer-huge.c6333cce.png)
 [www.codingame.com](https://www.codingame.com/servlet/urlinvite?u=1717345)
 personal my favorite for good visualisation, huge community, and not only solving puzzle also ability competition with ai bots
 
