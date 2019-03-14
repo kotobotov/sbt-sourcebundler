@@ -33,6 +33,9 @@ but if you like you can specify your Main.class and destination folder in `build
 ```sbtshell
 bundleMain := "Main.scala" // name of your main class
 bundleTarget := "./target" // existing destination folder
+bundleWithoutPackages := "true" // fixing wierd bug in codingame with loading packeges
+ //(so than it's true - we just don't use packeges and put everything in one namespase
+ // but it may cause problem having the same names) default is FALSE
 ```
 
 
