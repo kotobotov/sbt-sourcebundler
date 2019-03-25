@@ -1,8 +1,9 @@
-sbt-sourcebundler
+sbt-sourcebundler [ ![Download](https://api.bintray.com/packages/kotobotov/sbt-sourcebundler/sbt-sourcebundler/images/download.svg) ](https://bintray.com/kotobotov/sbt-sourcebundler/sbt-sourcebundler/_latestVersion)
 ====================
 
-sbt-sourcebundler is an sbt plugin to merge all source code into one bundle file.
-only working for your scala sourcecode (not packing any jars and so on)
+sbt-sourcebundler is an sbt plugin to merge all source code into one source file (many scala to 1 scala).
+it's useful to submit solutions in competition platform (like codingame, topcoders, codeforces)
+only working for your scala sourcecode (not packing any jars and so on), result is another scala file 
 
 based on [codingame-scala-kit](https://github.com/huiwang/codingame-scala-kit)
 
