@@ -4,6 +4,7 @@ sbt-sourcebundler
 sbt-sourcebundler is an sbt plugin to merge all source code into one bundle file.
 only working for your scala sourcecode (not packing any jars and so on)
 
+based on [codingame-scala-kit](https://github.com/huiwang/codingame-scala-kit)
 
 motivation
 ============
